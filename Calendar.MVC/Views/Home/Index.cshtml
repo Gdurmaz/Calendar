@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <!--Css-->
+    <link href="~/Content/fullcalendar.min.css" rel="stylesheet" />
+    <!--JQuery-->
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <!--Takvim-->
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/moment-with-locales.min.js"></script>
+    <script src="~/Scripts/fullcalendar/fullcalendar.min.js"></script>
+    <!--Tüm dillerim kütüphanesi-->
+    <script src="~/Scripts/fullcalendar/locale-all.js"></script>
+    <!--Türkçe Kütüphane-->
+    <script src="~/Scripts/fullcalendar/locale/tr.js"></script>
+</head>
+<body>
+    <div id="calendar">
+
+    </div>
+    <!-- Full calendar plugini kullanarak veriyi gösterme ve kendi etkinliği oluşturma-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var calendar = $("#calendar").fullCalendar(
+                {
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
+                    },
+                    defaultDate: new Date(2014, 8, 1),
+                    defaultView: 'month',
+                    selectable: true,
+                    selectHelper: true,
+                    select: function (start, end) {
+                        var title = prompt('Etkinlik Başlığı:');
+                        if (title) {
+                            calendar.fullCalendar('renderEvent',
+                                {
+                                    title: title,
+                                    start: start,
+                                    end: end
+                                },
+                                true
+                            );
+                        };
+                    },
+                    editable: true,
+                    events: '/Home/ReadJsonData'
+                });
+        });
+    </script>
+</body>
+</html>
+

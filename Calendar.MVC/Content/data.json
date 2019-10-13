@@ -1,0 +1,23 @@
+[
+  {
+    "ID": 1,
+    "Title": "event 1",
+    "StartingDate": "2014-09-25"
+  },
+  {
+    "ID": 2,
+    "Title": "event 2",
+    "StartingDate": "2014-09-26",
+    "EndDate": "2014-09-29"
+  },
+  {
+    "ID": 3,
+    "Title": "event 3",
+    "StartingDate": "2014-09-27"
+  },
+  {
+    "ID": 4,
+    "Title": "event 4",
+    "StartingDate": "2014-09-30"
+  }
+]
